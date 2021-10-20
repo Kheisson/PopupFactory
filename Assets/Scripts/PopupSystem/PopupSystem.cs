@@ -1,29 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Models;
+using UnityEngine;
 
-namespace MvcMvpExample
+public abstract class PopupSystem : MonoBehaviour
 {
+    #region Editor
 
-    public class PopupSystem : MonoBehaviour
-    {
-        [SerializeField] private RectTransform _parentTransform;
+    [SerializeField] protected RectTransform _parentTransform;
 
-        [SerializeField] private Object _playerSkillsPopupPrefabRef;
-        
-        [SerializeField] private PlayerSkillsModel _model;
+    [SerializeField] protected Object _playerSkillsPopupPrefabRef;
 
-        private MvcPlayerSkillsPopupFactory _playerSkillsPopupFactory;
+    [SerializeField] protected PlayerSkillsModel _model;
+    #endregion
 
-        private void Awake()
-        {
-            _playerSkillsPopupFactory = new MvcPlayerSkillsPopupFactory(_playerSkillsPopupPrefabRef, _model);
-        }
-
-        public void ShowPlayerSkillsPopup()
-        {
-            _playerSkillsPopupFactory.Create(_parentTransform);
-        }
-    }
+    public abstract void ShowPlayerSkillsPopup();
 }

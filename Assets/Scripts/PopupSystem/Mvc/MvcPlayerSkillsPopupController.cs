@@ -1,18 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Models;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace MvcMvpExample
 {
-    public class PlayerSkillsPopupController
+    public class MvcPlayerSkillsPopupController
     {
         private readonly MvcPlayerSkillsPopupView _view;
         private readonly PlayerSkillsModel _model;
 
-        public PlayerSkillsPopupController(MvcPlayerSkillsPopupView view, PlayerSkillsModel model)
+        public MvcPlayerSkillsPopupController(MvcPlayerSkillsPopupView view, PlayerSkillsModel model)
         {
             _view = view;
             _model = model;

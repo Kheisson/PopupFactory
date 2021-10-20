@@ -76,6 +76,14 @@ namespace MvcMvpExample.Mvp
 
             transform.position = originalPosition;
         }
+
+        public void UpdateData(int strength, int intelligence, int magic, int playerLevel)
+        {
+            _strength.text = strength.ToString();
+            _intelligence.text = intelligence.ToString();
+            _magic.text = magic.ToString();
+            _level.text = playerLevel.ToString();
+        }
         
         public void Shake()
         {

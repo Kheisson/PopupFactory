@@ -1,15 +1,16 @@
+using System.Collections;
 using Models;
 using UnityEngine;
 
-namespace MvcMvpExample
+namespace MvcMvpExample.Mvp
 {
 
-    public class MvcPlayerSkillsPopupFactory
+    public class MvpPlayerSkillsPopupFactory
     {
         private readonly Object _popupPrefabRef;
         private readonly PlayerSkillsModel _model;
 
-        public MvcPlayerSkillsPopupFactory(Object popupPrefabRef, PlayerSkillsModel model)
+        public MvpPlayerSkillsPopupFactory(Object popupPrefabRef, PlayerSkillsModel model)
         {
             _popupPrefabRef = popupPrefabRef;
             _model = model;
@@ -18,9 +19,9 @@ namespace MvcMvpExample
         public void Create(RectTransform parentTransform)
         {
             var popupInstance = (GameObject)Object.Instantiate(_popupPrefabRef, parentTransform);
-            var mvcView = popupInstance.GetComponent<MvcPlayerSkillsPopupView>();
-            var controller = new PlayerSkillsPopupController(mvcView, _model);
-            mvcView.SetModel(_model);
+            var mvpView = popupInstance.GetComponent<MvpPlayerSkillsPopupView>();
+            var presenter = new MvpPlayerSkillsPopupPresenter(mvpView, _model);
         }
     }
+
 }
