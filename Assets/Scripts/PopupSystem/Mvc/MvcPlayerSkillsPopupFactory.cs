@@ -4,18 +4,16 @@ using UnityEngine;
 namespace MvcMvpExample
 {
 
-    public class MvcPlayerSkillsPopupFactory
+    public class MvcPlayerSkillsPopupFactory : PopupFactory
     {
-        private readonly Object _popupPrefabRef;
-        private readonly PlayerSkillsModel _model;
-
+       
         public MvcPlayerSkillsPopupFactory(Object popupPrefabRef, PlayerSkillsModel model)
         {
             _popupPrefabRef = popupPrefabRef;
             _model = model;
         }
 
-        public void Create(RectTransform parentTransform)
+        public override void Create(RectTransform parentTransform)
         {
             var popupInstance = (GameObject)Object.Instantiate(_popupPrefabRef, parentTransform);
             var mvcView = popupInstance.GetComponent<MvcPlayerSkillsPopupView>();
